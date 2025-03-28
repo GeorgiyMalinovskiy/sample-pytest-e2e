@@ -1,3 +1,4 @@
+# Python
 __pycache__/
 .pytest_cache/
 venv/
@@ -10,4 +11,7 @@ venv/
 allure-report/
 
 # Logs
-*.log 
+*.log
+
+# Env
+.env

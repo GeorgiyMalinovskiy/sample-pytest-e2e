@@ -10,7 +10,7 @@ class TestPasswordRecovery:
         login_page = LoginPage(driver)
         login_page.open()
         login_page.click_forgot_password()
-        assert 'forgot-password' in driver.current_url
+        assert login_page.is_on_recovery_page(), "Не удалось перейти на страницу восстановления пароля"
 
     @allure.title('Проверка ввода email и кнопки восстановления')
     def test_email_input_and_recovery(self, driver):
@@ -24,5 +24,6 @@ class TestPasswordRecovery:
     def test_password_visibility(self, driver):
         login_page = LoginPage(driver)
         login_page.open()
+        login_page.enter_password("test123")
         login_page.click_show_password()
-        assert login_page.is_password_field_active() 
+        assert login_page.is_password_field_active(), "Поле пароля должно быть активным после нажатия на кнопку показать/скрыть" 
